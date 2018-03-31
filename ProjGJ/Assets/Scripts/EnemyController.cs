@@ -27,17 +27,18 @@ public class EnemyController : MonoBehaviour {
 
     void FixedUpdate() {
         Vector3 dirToPlayer = player.position - transform.position;
-        if (Vector3.Angle(targetWaypoint - transform.position, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
+        Vector3 dirToWaypoint = targetWaypoint - transform.position;
+
+        if (dirToWaypoint.x < 0f) {
+            enemySprite.flipX = true;
+        } else {
+            enemySprite.flipX = false;
+        }
+
+        if (Vector3.Angle(dirToWaypoint, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
 
             float zAngle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
             weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
-
-
-            if (90f < weapon.transform.rotation.eulerAngles.z && weapon.transform.rotation.eulerAngles.z < 270f) {
-                enemySprite.flipX = true;
-            } else {
-                enemySprite.flipX = false;
-            }
 
             Fire();
         }
