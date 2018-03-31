@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
         lm = LevelManager.instance;
         lm.bugs.OnDisabilitiesChange += OnDisabilitiesChange;
         defaultJumps = lm.bugs.DefaultJumps;
-
+        Debug.Log(defaultJumps);
         rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -52,6 +52,12 @@ public class PlayerController : MonoBehaviour {
 
     private void OnDisabilitiesChange() {
         defaultJumps = lm.bugs.DefaultJumps;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Harmful")) {
+            Destroy(gameObject, 0.2f);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision) {

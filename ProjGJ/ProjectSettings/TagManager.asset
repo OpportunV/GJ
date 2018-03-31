@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Harmful
+  - Enemy
   layers:
   - Default
   - TransparentFX
