@@ -1,0 +1,38 @@
+﻿using UnityEngine;
+
+public class Bugs {
+
+    public event System.Action OnDisabilitiesChange;
+
+    [System.Serializable]
+    public enum Disabilities {
+        WalkLeft, WalkRight, SingleJump, DoubleJump, TripleJump, PressButtons,
+        MoveBoxes, HealthBar, SolidBlocks, CameraFollow, BackgroundVisile,
+        TreesVisible, PlayerVisible, BulletproofBlocks, ShotsStraight,
+        HitEffects
+    }
+
+    public bool[] disabilities;
+
+    public int DefaultJumps {
+        get {
+            int tmpJumps = 0;
+            tmpJumps += (disabilities[(int)Disabilities.TripleJump]) ? 1 : 0;
+            tmpJumps += (disabilities[(int)Disabilities.DoubleJump]) ? 1 : 0;
+            tmpJumps += (disabilities[(int)Disabilities.SingleJump]) ? 1 : 0;
+            return tmpJumps;
+        }
+    }
+
+    public Bugs() {
+        disabilities = new bool[(int)Disabilities.HitEffects];
+        for (int i = 0, length = disabilities.Length; i < length; i++) {
+            disabilities[i] = true;
+        }
+    }
+
+    public void SetDisability(Disabilities disability, bool value) {
+        disabilities[(int)disability] = value;
+    }
+
+}
