@@ -10,12 +10,15 @@ public class EnemyController : MonoBehaviour {
     public SpriteRenderer enemySprite;
     public float speed = 10f;
     public float detectDist = 5f;
+    public float firerate = 1f;
 
     private Transform player;
     private Vector3 targetWaypoint;
     private int targetIndex = 0;
     private Rigidbody2D rb;
     private IEnumerator currentRoutine;
+    private float fireTime = 0f;
+    private Vector2 dirToWaypoint, dirToPlayer;
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
@@ -26,22 +29,23 @@ public class EnemyController : MonoBehaviour {
 	}
 
     void FixedUpdate() {
-        Vector3 dirToPlayer = player.position - transform.position;
-        Vector3 dirToWaypoint = targetWaypoint - transform.position;
+        dirToPlayer = player.position - transform.position;
+        dirToWaypoint = targetWaypoint - transform.position;
 
         if (dirToWaypoint.x < 0f) {
             enemySprite.flipX = true;
+            weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, -180f), 10f);
         } else {
             enemySprite.flipX = false;
+            weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, 0f), 10f);
         }
 
-        if (Vector3.Angle(dirToWaypoint, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
-
+        if (PlayerFound()) {
             float zAngle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
             weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
-
             Fire();
         }
+        
     }
 
     IEnumerator Patrol(float delay) {
@@ -55,8 +59,24 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    bool PlayerFound() {
+        if (Vector3.Angle(dirToWaypoint, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
+
+            RaycastHit hit;
+            if (Physics.Raycast(bulletSpawner.position, dirToPlayer, out hit, 100f)) {
+                if (hit.collider.CompareTag("Player")) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     void Fire() {
-        Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
+        if (Time.time > fireTime) {
+            Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
+            fireTime = Time.time + 1f / firerate;
+        }
     }
 
     void GetNextWaypoint() {
