@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
     public Transform[] waypoints;
     public GameObject weapon, bulletPrefab;
     public Transform bulletSpawner;
+    public SpriteRenderer enemySprite;
     public float speed = 10f;
     public float detectDist = 5f;
 
@@ -26,10 +27,18 @@ public class EnemyController : MonoBehaviour {
 
     void FixedUpdate() {
         Vector3 dirToPlayer = player.position - transform.position;
-        if (Vector3.Angle(rb.velocity, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
+        if (Vector3.Angle(targetWaypoint - transform.position, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
 
             float zAngle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
+            weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
+
+
+            if (90f < weapon.transform.rotation.eulerAngles.z && weapon.transform.rotation.eulerAngles.z < 270f) {
+                enemySprite.flipX = true;
+            } else {
+                enemySprite.flipX = false;
+            }
+
             Fire();
         }
     }
@@ -41,7 +50,6 @@ public class EnemyController : MonoBehaviour {
                 yield return new WaitForSeconds(5 * delay);
             }
             rb.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.fixedDeltaTime);
-            Debug.Log(GetComponent<Rigidbody2D>().velocity);
             yield return new WaitForSeconds(delay);
         }
     }

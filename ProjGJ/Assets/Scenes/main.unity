@@ -910,8 +910,13 @@ MonoBehaviour:
   waypoints:
   - {fileID: 963770625}
   - {fileID: 1305008214}
-  weapon: {fileID: 0}
+  weapon: {fileID: 1546313466}
+  bulletPrefab: {fileID: 1972839229181722, guid: 64bae283357140f42a7ffc3cc0d4cfec,
+    type: 2}
+  bulletSpawner: {fileID: 1477210960}
+  enemySprite: {fileID: 1107613310}
   speed: 10
+  detectDist: 5
 --- !u!61 &1554544815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1063,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c821df8489ce143b186e60008471d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1002847908}
 --- !u!4 &1948794257
 Transform:
   m_ObjectHideFlags: 0
