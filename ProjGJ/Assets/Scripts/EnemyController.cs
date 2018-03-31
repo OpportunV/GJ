@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour {
     public float detectDist = 5f;
     public float firerate = 1f;
 
+    public Bugs.Disabilities currentDisability;
+
     private Transform player;
     private Vector3 targetWaypoint;
     private int targetIndex = 0;
@@ -19,10 +21,12 @@ public class EnemyController : MonoBehaviour {
     private IEnumerator currentRoutine;
     private float fireTime = 0f;
     private Vector2 dirToWaypoint, dirToPlayer;
+    private LevelManager lm;
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        player = LevelManager.instance.player.transform;
+        lm = LevelManager.instance;
+        player = lm.player.transform;
         GetNextWaypoint();
         currentRoutine = Patrol(Time.fixedDeltaTime);
         StartCoroutine(currentRoutine);
@@ -85,5 +89,15 @@ public class EnemyController : MonoBehaviour {
     void GetNextWaypoint() {
         targetIndex = (targetIndex + 1) % waypoints.Length;
         targetWaypoint = new Vector2(waypoints[targetIndex].position.x, transform.position.y);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Harmful")) {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy() {
+        lm.bugs.SetDisability(currentDisability, false);
     }
 }

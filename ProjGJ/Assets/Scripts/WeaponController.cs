@@ -11,8 +11,11 @@ public class WeaponController : MonoBehaviour {
 
     private float angVel = 10f;
     private bool needToShoot = false;
+    private LevelManager lm;
 	
-	void Start () { 
+	void Start () {
+        lm = LevelManager.instance;
+        lm.bugs.OnDisabilitiesChange += OnDisabilityChange;
     }
 
     void Update() {
@@ -37,6 +40,13 @@ public class WeaponController : MonoBehaviour {
         if (needToShoot) {
             Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
             needToShoot = false;
+        }
+    }
+
+    void OnDisabilityChange() {
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.PlayerVisible]) {
+            playerSprite.enabled = false;
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
     }
 }
