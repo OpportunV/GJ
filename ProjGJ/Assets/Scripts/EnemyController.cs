@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour {
         while (true) {
             if (Mathf.Abs(transform.position.x - targetWaypoint.x) < 0.1f) {
                 GetNextWaypoint();
-                yield return new WaitForSeconds(5 * delay);
+                yield return new WaitForSeconds(5 * delay); //waaaiiiitt
             }
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.fixedDeltaTime);
             yield return new WaitForSeconds(delay);
