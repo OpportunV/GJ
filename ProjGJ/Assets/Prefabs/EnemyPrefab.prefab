@@ -225,7 +225,8 @@ MonoBehaviour:
   bulletSpawner: {fileID: 4986373305812342}
   enemySprite: {fileID: 212726058547752320}
   speed: 10
-  detectDist: 5
+  detectDist: 15
+  firerate: 3
 --- !u!212 &212424179165499466
 SpriteRenderer:
   m_ObjectHideFlags: 1
