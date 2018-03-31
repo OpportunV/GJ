@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour {
         GetNextWaypoint();
         currentRoutine = Patrol(Time.fixedDeltaTime);
         StartCoroutine(currentRoutine);
+        Physics2D.queriesStartInColliders = false;
 	}
 
     void FixedUpdate() {
@@ -62,12 +63,14 @@ public class EnemyController : MonoBehaviour {
     bool PlayerFound() {
         if (Vector3.Angle(dirToWaypoint, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
 
-            RaycastHit hit;
-            if (Physics.Raycast(bulletSpawner.position, dirToPlayer, out hit, 100f)) {
+            
+            RaycastHit2D hit = Physics2D.Raycast(bulletSpawner.position, dirToPlayer, 100f);
+            if (hit) {
                 if (hit.collider.CompareTag("Player")) {
                     return true;
                 }
             }
+            
         }
         return false;
     }
