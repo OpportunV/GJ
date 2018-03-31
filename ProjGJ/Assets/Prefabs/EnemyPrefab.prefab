@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602350351433150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.81, y: 0, z: 0}
+  m_LocalPosition: {x: 1.33, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4515047264488450}
@@ -223,6 +223,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1972839229181722, guid: 64bae283357140f42a7ffc3cc0d4cfec,
     type: 2}
   bulletSpawner: {fileID: 4986373305812342}
+  enemySprite: {fileID: 212726058547752320}
   speed: 10
   detectDist: 5
 --- !u!212 &212424179165499466
