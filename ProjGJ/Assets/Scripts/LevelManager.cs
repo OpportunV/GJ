@@ -15,10 +15,9 @@ public class LevelManager : MonoBehaviour {
     }
     #endregion
 
-    public Bugs bugs;
+    public Bugs bugs = new Bugs();
 
 	void Start () {
-        bugs = new Bugs();
 	}
 	
 }
