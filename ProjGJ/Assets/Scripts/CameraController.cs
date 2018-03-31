@@ -9,8 +9,17 @@ public class CameraController : MonoBehaviour {
     public float smoothTime = .5f;
 
     private Vector3 dampVelocity;
-	
-	void LateUpdate () {
+
+    private LevelManager lm;
+
+    void Start() {
+        lm = LevelManager.instance;
+    }
+
+    void LateUpdate () {
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.CameraFollow]) {
+            return;
+        }
         transform.position = Vector3.SmoothDamp(transform.position, target.position + camOffset, ref dampVelocity, smoothTime);
 	}
 }
