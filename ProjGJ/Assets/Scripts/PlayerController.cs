@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour {
         lm = LevelManager.instance;
         lm.bugs.OnDisabilitiesChange += OnDisabilitiesChange;
         defaultJumps = lm.bugs.DefaultJumps;
-        Debug.Log(defaultJumps);
         rb = GetComponent<Rigidbody2D>();
 	}
 	

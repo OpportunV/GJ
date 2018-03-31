@@ -6,7 +6,7 @@ public class Bugs {
 
     [System.Serializable]
     public enum Disabilities {
-        WalkLeft, WalkRight, SingleJump, DoubleJump, PressButtons,
+        WalkLeft, WalkRight, SingleJump, PressButtons,
         MoveBoxes, HealthBar, SolidBlocks, CameraFollow, BackgroundVisile,
         TreesVisible, PlayerVisible, BulletproofBlocks, ShotsStraight,
         HitEffects
@@ -17,7 +17,6 @@ public class Bugs {
     public int DefaultJumps {
         get {
             int tmpJumps = 0;
-            tmpJumps += (disabilities[(int)Disabilities.DoubleJump]) ? 1 : 0;
             tmpJumps += (disabilities[(int)Disabilities.SingleJump]) ? 1 : 0;
             return tmpJumps;
         }
