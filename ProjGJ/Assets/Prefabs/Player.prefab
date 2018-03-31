@@ -141,7 +141,7 @@ Transform:
   m_GameObject: {fileID: 1244355359150380}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.300434, y: 10.300427, z: 10.300427}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4660494380378184}
   m_RootOrder: 1
@@ -153,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544707532226820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.62, z: 0}
+  m_LocalPosition: {x: -2.591846, y: 2.4016647, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4194022655590810}
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61606370372385328
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -204,7 +204,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.4}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &114026514636781648
 MonoBehaviour:
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0621af55acde8c4b8dfb6fe29ebf7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpVelocity: 5
+  jumpVelocity: 7
   moveVelocity: 7
 --- !u!212 &212521847552444784
 SpriteRenderer:
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 0f16873f8e37ecd4b8d3f215ce0b88ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
