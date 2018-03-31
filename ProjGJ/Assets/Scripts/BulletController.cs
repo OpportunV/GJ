@@ -20,8 +20,8 @@ public class BulletController : MonoBehaviour {
         Destroy(gameObject, 5f);
 	}
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Platform")) {
+    void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.CompareTag("Platform")) {
             Destroy(gameObject);
         }
     }

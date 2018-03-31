@@ -17,6 +17,8 @@ public class LevelManager : MonoBehaviour {
 
     public Bugs bugs = new Bugs();
 
+    public GameObject player;
+
 	void Start () {
 	}
 	

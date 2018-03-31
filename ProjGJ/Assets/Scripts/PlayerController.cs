@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour {
 
         if (rb.velocity.y < 0f) {
             rb.velocity += Vector2.up * Physics.gravity.y * fallMultiplier * Time.fixedDeltaTime;
-        } else if (Input.GetKeyDown(KeyCode.Space)) {
+        } else if (!Input.GetKey(KeyCode.Space)) {
             rb.velocity += Vector2.up * Physics.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
         }
 
