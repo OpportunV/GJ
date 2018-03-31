@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570808814233690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: 0.834, z: 0}
+  m_LocalPosition: {x: 7.06, y: 6.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4515047264488450}
@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 1063519036460498}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.300434, y: 10.300427, z: 10.300427}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4439169431283158}
   m_RootOrder: 1
@@ -179,7 +179,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61459894212865518
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -203,8 +203,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 1.4}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.67, y: 1.9}
+  m_EdgeRadius: 0.01
 --- !u!114 &114401337414739966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,8 +219,12 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 1224836047691722}
+  bulletPrefab: {fileID: 1972839229181722, guid: 64bae283357140f42a7ffc3cc0d4cfec,
+    type: 2}
+  bulletSpawner: {fileID: 4986373305812342}
   speed: 10
+  detectDist: 5
 --- !u!212 &212424179165499466
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -299,7 +303,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 0f16873f8e37ecd4b8d3f215ce0b88ee, type: 3}
   m_Color: {r: 0.2794118, g: 0.2794118, b: 0.2794118, a: 1}
   m_FlipX: 0
   m_FlipY: 0
