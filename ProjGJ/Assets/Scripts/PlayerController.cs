@@ -51,12 +51,22 @@ public class PlayerController : MonoBehaviour {
 
     private void OnDisabilitiesChange() {
         defaultJumps = lm.bugs.DefaultJumps;
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.SolidBlocks]) {
+            Physics.IgnoreLayerCollision(9, 10, true);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Harmful")) {
             Destroy(gameObject, 0.2f);
         }
+    }
+
+    private void OnDestroy() {
+        if (lm.isQuitting) {
+            return;
+        }
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0); // UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnCollisionStay2D(Collision2D collision) {

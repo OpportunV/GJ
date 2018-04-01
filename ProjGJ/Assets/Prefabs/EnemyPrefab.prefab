@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 61459894212865518}
   m_Layer: 0
   m_Name: EnemyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,6 +227,10 @@ MonoBehaviour:
   speed: 10
   detectDist: 15
   firerate: 3
+  currentDisability: 11
+  errorText: text text text
+  errorMesagePrefab: {fileID: 1046237481201722, guid: f22275b14dbd2e849b5499b6b574762b,
+    type: 2}
 --- !u!212 &212424179165499466
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -262,7 +266,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.38235295, g: 0.32331315, b: 0.32331315, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

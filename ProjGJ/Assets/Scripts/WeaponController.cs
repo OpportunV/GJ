@@ -38,7 +38,7 @@ public class WeaponController : MonoBehaviour {
         }
 
         if (needToShoot) {
-            Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
+            Destroy(Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation), 5f);
             needToShoot = false;
         }
     }
