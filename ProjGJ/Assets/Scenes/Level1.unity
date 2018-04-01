@@ -470,7 +470,7 @@ Tilemap:
   - first: {x: 46, y: -2, z: 0}
     second:
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -479,7 +479,7 @@ Tilemap:
   - first: {x: 47, y: -2, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -655,10 +655,10 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: e96c9c540b8f0084b82c989477dec16e, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 209f6307229ff7c47977bd2c6e688d89, type: 3}
   - m_RefCount: 8
     m_Data: {fileID: 21300000, guid: a1ad9ac235cdd3b4fa7dbe0c7518a825, type: 3}
   - m_RefCount: 1
@@ -667,8 +667,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 22fbc63ef9bec2b4a916e22e90bfec69, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: 21300000, guid: c637842cf9adfd944ab3303397ac50f8, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 209f6307229ff7c47977bd2c6e688d89, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 41
     m_Data:
@@ -5920,7 +5920,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1029390389}
   isQuitting: 0
-  messages: []
+  punishment: []
 --- !u!4 &1948794257
 Transform:
   m_ObjectHideFlags: 0
