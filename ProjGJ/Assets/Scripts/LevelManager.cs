@@ -18,8 +18,12 @@ public class LevelManager : MonoBehaviour {
     public Bugs bugs = new Bugs();
 
     public GameObject player;
+    public bool isQuitting = false;
 
 	void Start () {
 	}
-	
+
+    private void OnApplicationQuit() {
+        isQuitting = true;
+    }
 }

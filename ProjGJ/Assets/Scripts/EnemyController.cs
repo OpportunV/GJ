@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour {
     public float firerate = 1f;
 
     public Bugs.Disabilities currentDisability;
+    public string errorText;
+    public GameObject errorMesagePrefab;
 
     private Transform player;
     private Vector3 targetWaypoint;
@@ -48,6 +50,7 @@ public class EnemyController : MonoBehaviour {
         if (PlayerFound()) {
             float zAngle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
             weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
+            targetWaypoint = player.position;
             Fire();
         }
         
@@ -67,6 +70,9 @@ public class EnemyController : MonoBehaviour {
     bool PlayerFound() {
         if (Vector3.Angle(dirToWaypoint, dirToPlayer) < 90f && Vector3.Distance(transform.position, player.position) < detectDist) {
 
+            if (!lm.bugs.disabilities[(int)Bugs.Disabilities.BulletproofBlocks]) {
+                return true;
+            }
             
             RaycastHit2D hit = Physics2D.Raycast(bulletSpawner.position, dirToPlayer, 100f);
             if (hit) {
@@ -98,6 +104,12 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void OnDestroy() {
+        if (lm.isQuitting) {
+            return;
+        }
+
         lm.bugs.SetDisability(currentDisability, false);
+        GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
+        temp.GetComponent<ErrorMessageController>().SetText(errorText);
     }
 }

@@ -9,18 +9,22 @@ public class BulletController : MonoBehaviour {
     private LevelManager lm;
     private Rigidbody2D rb;
 
-	void Start () {
+	void Awake() {
         lm = LevelManager.instance;
         rb = GetComponent<Rigidbody2D>();
+	}
+
+    private void Start() {
         if (lm.bugs.disabilities[(int)Bugs.Disabilities.ShotsStraight]) {
             rb.gravityScale = 0;
         }
         rb.velocity = transform.right * speed;
-
-        Destroy(gameObject, 5f);
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D collision) {
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.BulletproofBlocks]) {
+            return;
+        }
         if (collision.CompareTag("Platform")) {
             Destroy(gameObject);
         }
