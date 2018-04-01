@@ -85,8 +85,16 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Harmful")) {
+            GameObject temp;
+            int nextLvl = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1;
+            if (nextLvl >= UnityEngine.SceneManagement.SceneManager.sceneCountInBuildSettings) {
+                temp = Instantiate(errorMesagePrefab, transform.position, Quaternion.identity);
+                temp.GetComponent<ErrorMessageController>().SetText("Wow. It seems you're won. What's a miracle!");
+                Invoke("LoadMenu", 2f);
+                return;
+            }
             Time.timeScale = 0f;
-            GameObject temp = Instantiate(errorMesagePrefab, transform.position, Quaternion.identity);
+            temp = Instantiate(errorMesagePrefab, transform.position, Quaternion.identity);
             temp.GetComponent<ErrorMessageController>().SetText("Press \"R\" to restart");
             Destroy(gameObject, 0.2f);
         }

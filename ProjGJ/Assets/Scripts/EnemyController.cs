@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour {
     public float detectDist = 5f;
     public float firerate = 1f;
     public bool isFolowing = true;
+    public bool alwaysFire = false;
 
     public Bugs.Disabilities currentDisability;
     public GameObject errorMesagePrefab;
@@ -38,6 +39,9 @@ public class EnemyController : MonoBehaviour {
     void FixedUpdate() {
         dirToPlayer = player.position - transform.position;
         dirToWaypoint = targetWaypoint - transform.position;
+        if (alwaysFire) {
+            Fire();
+        }
 
         if (dirToWaypoint.x < 0f) {
             enemySprite.flipX = true;
