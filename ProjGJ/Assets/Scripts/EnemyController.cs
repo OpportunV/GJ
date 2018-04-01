@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour {
     public float firerate = 1f;
     public bool isFolowing = true;
     public bool alwaysFire = false;
+    public Transform alwaysFireTarget;
 
     public Bugs.Disabilities currentDisability;
     public GameObject errorMesagePrefab;
@@ -40,7 +41,10 @@ public class EnemyController : MonoBehaviour {
         dirToPlayer = player.position - transform.position;
         dirToWaypoint = targetWaypoint - transform.position;
         if (alwaysFire) {
+            float zAngle = Mathf.Atan2(alwaysFireTarget.position.y - transform.position.y, alwaysFireTarget.position.x - transform.position.x) * Mathf.Rad2Deg;
+            weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
             Fire();
+            return;
         }
 
         if (dirToWaypoint.x < 0f) {
