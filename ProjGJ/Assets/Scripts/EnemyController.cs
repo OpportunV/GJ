@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour {
         lm = LevelManager.instance;
         player = lm.player.transform;
         GetNextWaypoint();
-        if (targetWaypoint == null) {
+        if (waypoints[targetIndex] == null) {
             return;
         }
         currentRoutine = Patrol(Time.fixedDeltaTime);
@@ -107,6 +107,9 @@ public class EnemyController : MonoBehaviour {
 
     void GetNextWaypoint() {
         targetIndex = (targetIndex + 1) % waypoints.Length;
+        if (waypoints[targetIndex] == null) {
+            return;
+        }
         targetWaypoint = new Vector2(waypoints[targetIndex].position.x, transform.position.y);
     }
 
