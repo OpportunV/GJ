@@ -35311,9 +35311,35 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 4.97
       objectReference: {fileID: 0}
+    - target: {fileID: 4189121585192640, guid: bd4aa1d01f3e2984fafb77e42409136d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189121585192640, guid: bd4aa1d01f3e2984fafb77e42409136d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 12.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403840720334262, guid: bd4aa1d01f3e2984fafb77e42409136d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403840720334262, guid: bd4aa1d01f3e2984fafb77e42409136d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.29
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd4aa1d01f3e2984fafb77e42409136d, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1734931830 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4403840720334262, guid: bd4aa1d01f3e2984fafb77e42409136d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1734931829}
+--- !u!4 &1734931831 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4189121585192640, guid: bd4aa1d01f3e2984fafb77e42409136d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1734931829}
 --- !u!1001 &1922488486
 Prefab:
   m_ObjectHideFlags: 0
@@ -35407,12 +35433,12 @@ Prefab:
         type: 2}
       propertyPath: waypoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1734931831}
     - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
         type: 2}
       propertyPath: waypoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1734931830}
     - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
         type: 2}
       propertyPath: currentDisability
@@ -35421,6 +35447,11 @@ Prefab:
     - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
         type: 2}
       propertyPath: isFolowing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61459894212865518, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: m_UsedByEffector
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
