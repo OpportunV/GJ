@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 018fb33d21a04d14faa1c6381672b9b4
+  productGUID: b37f0006b3c70c94882cfade010912bf
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,11 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: BlessYou
-<<<<<<< HEAD
   productName: ErrorLoadingName
-=======
-  productName: ErrorLoandigName
->>>>>>> 38f9b41538ee5627a49d32321295302ab738f06e
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

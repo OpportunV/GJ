@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void LoadMenu() {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
     private void OnCollisionStay2D(Collision2D collision) {
