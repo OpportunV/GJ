@@ -12,10 +12,12 @@ public class PlayerController : MonoBehaviour {
     public GameObject errorMesagePrefab;
 
     private LevelManager lm;
+    private AudioSource jumpAudio;
 
     public float jumpVelocity, moveVelocity;
     
 	void Start () {
+        jumpAudio = GetComponent<AudioSource>();
         Time.timeScale = 1f;
         lm = LevelManager.instance;
         lm.bugs.OnDisabilitiesChange += OnDisabilitiesChange;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         if (needToJump) {
+            jumpAudio.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             jumps--;
             needToJump = false;
