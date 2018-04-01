@@ -30,9 +30,6 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
         lm = LevelManager.instance;
-        if (alwaysFire) {
-            return;
-        }
         player = lm.player.transform;
         GetNextWaypoint();
         currentRoutine = Patrol(Time.fixedDeltaTime);
