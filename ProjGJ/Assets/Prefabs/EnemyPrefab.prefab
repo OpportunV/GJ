@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 50453474459588038}
   - component: {fileID: 114401337414739966}
   - component: {fileID: 61459894212865518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyPrefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
