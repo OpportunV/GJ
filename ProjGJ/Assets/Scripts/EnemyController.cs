@@ -109,7 +109,9 @@ public class EnemyController : MonoBehaviour {
         }
 
         lm.bugs.SetDisability(currentDisability, false);
-        GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
-        temp.GetComponent<ErrorMessageController>().SetText(errorText);
+        if (player != null) {
+            GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
+            temp.GetComponent<ErrorMessageController>().SetText(lm.bugs.messages[(int)currentDisability]);
+        }
     }
 }

@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour {
     public bool isQuitting = false;
 
     public string[] messages;
+    public string[] punishment;
 
 	void Start () {
         bugs.SetMessages(messages);

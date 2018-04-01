@@ -31,10 +31,12 @@ public class WeaponController : MonoBehaviour {
         float zAngle = Mathf.Atan2(target.y - transform.position.y, target.x - transform.position.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, zAngle), angVel);
 
-        if (90f < transform.rotation.eulerAngles.z && transform.rotation.eulerAngles.z < 270f) {
-            playerSprite.flipX = true;
-        } else {
-            playerSprite.flipX = false;
+        if (playerSprite.enabled) {
+            if (90f < transform.rotation.eulerAngles.z && transform.rotation.eulerAngles.z < 270f) {
+                playerSprite.flipX = true;
+            } else {
+                playerSprite.flipX = false;
+            }
         }
 
         if (needToShoot) {
@@ -45,6 +47,9 @@ public class WeaponController : MonoBehaviour {
 
     void OnDisabilityChange() {
         if (!lm.bugs.disabilities[(int)Bugs.Disabilities.PlayerVisible]) {
+            if (playerSprite == null) {
+                return;
+            }
             playerSprite.enabled = false;
             GetComponentInChildren<SpriteRenderer>().enabled = false;
         }
