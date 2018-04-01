@@ -103,6 +103,10 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    void LoadMenu() {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
     private void OnCollisionStay2D(Collision2D collision) {
         if (collision.collider.CompareTag("Platform")) {
             jumps = defaultJumps;
