@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
     }
 
     void LateUpdate () {
-        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.CameraFollow] || lm.isQuitting || target == null) {
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.CameraFollow] || target == null) {
             return;
         }
         transform.position = Vector3.SmoothDamp(transform.position, target.position + camOffset, ref dampVelocity, smoothTime);

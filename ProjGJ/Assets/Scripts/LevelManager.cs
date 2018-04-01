@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour {
     public Bugs bugs = new Bugs();
 
     public GameObject player;
-    public bool isQuitting = false;
 
     string[] messages =
     {
@@ -42,8 +41,4 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
         bugs.SetMessages(messages);
 	}
-
-    private void OnApplicationQuit() {
-        isQuitting = true;
-    }
 }

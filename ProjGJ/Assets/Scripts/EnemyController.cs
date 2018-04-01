@@ -99,19 +99,12 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Harmful")) {
+            lm.bugs.SetDisability(currentDisability, false);
+            if (player != null) {
+                GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
+                temp.GetComponent<ErrorMessageController>().SetText(lm.bugs.messages[(int)currentDisability]);
+            }
             Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy() {
-        if (lm.isQuitting) {
-            return;
-        }
-
-        lm.bugs.SetDisability(currentDisability, false);
-        if (player != null) {
-            GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
-            temp.GetComponent<ErrorMessageController>().SetText(lm.bugs.messages[(int)currentDisability]);
         }
     }
 }

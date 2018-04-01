@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -35233,11 +35233,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4660494380378184, guid: b9768f4365499aa4f97e2286b217effe, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.9
+      value: 52.67
       objectReference: {fileID: 0}
     - target: {fileID: 4660494380378184, guid: b9768f4365499aa4f97e2286b217effe, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4660494380378184, guid: b9768f4365499aa4f97e2286b217effe, type: 2}
       propertyPath: m_LocalPosition.z
@@ -35323,6 +35323,11 @@ Prefab:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 812478930}
+    - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: currentDisability
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c26c035ed842e4b9cf78ea9ffd3298, type: 2}
   m_IsPrefabParent: 0
@@ -35355,7 +35360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1029390389}
   isQuitting: 0
-  messages: []
+  punishment: []
 --- !u!4 &1948794257
 Transform:
   m_ObjectHideFlags: 0
