@@ -20,7 +20,10 @@ public class LevelManager : MonoBehaviour {
     public GameObject player;
     public bool isQuitting = false;
 
+    public string[] messages;
+
 	void Start () {
+        bugs.SetMessages(messages);
 	}
 
     private void OnApplicationQuit() {
