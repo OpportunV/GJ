@@ -24,6 +24,10 @@ public class Bugs {
         }
     }
 
+    public void SetMessages(string[] msgs) {
+        messages = msgs;
+    }
+
     public Bugs() {
         disabilities = new bool[(int)Disabilities.HitEffects];
         for (int i = 0, length = disabilities.Length; i < length; i++) {

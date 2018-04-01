@@ -53,6 +53,13 @@ public class PlayerController : MonoBehaviour {
         defaultJumps = lm.bugs.DefaultJumps;
         if (!lm.bugs.disabilities[(int)Bugs.Disabilities.SolidBlocks]) {
             Physics2D.IgnoreLayerCollision(9, 10, true);
+            GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+            foreach (GameObject obj in platforms) {
+                if (obj.layer == 9) {
+                    var eff = obj.GetComponent<PlatformEffector2D>();
+                    eff.enabled = false;
+                }
+            }
         }
     }
 
