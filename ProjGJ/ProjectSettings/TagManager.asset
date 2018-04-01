@@ -8,6 +8,7 @@ TagManager:
   - Harmful
   - Enemy
   - Tree
+  - Background
   layers:
   - Default
   - TransparentFX

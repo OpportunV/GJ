@@ -75,6 +75,12 @@ public class PlayerController : MonoBehaviour {
                 tree.SetActive(false);
             }
         }
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.BackgroundVisile]) {
+            GameObject[] bgs = GameObject.FindGameObjectsWithTag("Background");
+            foreach (GameObject bg in bgs) {
+                bg.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
