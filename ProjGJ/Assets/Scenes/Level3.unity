@@ -1185,6 +1185,11 @@ Prefab:
       propertyPath: currentDisability
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: firerate
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c26c035ed842e4b9cf78ea9ffd3298, type: 2}
   m_IsPrefabParent: 0
@@ -1871,6 +1876,11 @@ Prefab:
       propertyPath: currentDisability
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: firerate
+      value: 1.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c26c035ed842e4b9cf78ea9ffd3298, type: 2}
   m_IsPrefabParent: 0
@@ -2337,6 +2347,11 @@ Prefab:
         type: 2}
       propertyPath: currentDisability
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: firerate
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c26c035ed842e4b9cf78ea9ffd3298, type: 2}
@@ -10517,6 +10532,11 @@ Prefab:
         type: 2}
       propertyPath: currentDisability
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114401337414739966, guid: 69c26c035ed842e4b9cf78ea9ffd3298,
+        type: 2}
+      propertyPath: firerate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c26c035ed842e4b9cf78ea9ffd3298, type: 2}
