@@ -69,6 +69,12 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+        if (!lm.bugs.disabilities[(int)Bugs.Disabilities.TreesVisible]) {
+            GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
+            foreach (GameObject tree in trees) {
+                tree.SetActive(false);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
