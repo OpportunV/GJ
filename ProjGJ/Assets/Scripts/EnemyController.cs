@@ -11,9 +11,9 @@ public class EnemyController : MonoBehaviour {
     public float speed = 10f;
     public float detectDist = 5f;
     public float firerate = 1f;
+    public bool isFolowing = true;
 
     public Bugs.Disabilities currentDisability;
-    public string errorText;
     public GameObject errorMesagePrefab;
 
     private Transform player;
@@ -50,7 +50,9 @@ public class EnemyController : MonoBehaviour {
         if (PlayerFound()) {
             float zAngle = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
             weapon.transform.rotation = Quaternion.RotateTowards(weapon.transform.rotation, Quaternion.Euler(0f, 0f, zAngle), 10f);
-            targetWaypoint = player.position;
+            if (isFolowing) {
+                targetWaypoint = player.position;
+            }
             Fire();
         }
         
@@ -99,19 +101,12 @@ public class EnemyController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Harmful")) {
+            lm.bugs.SetDisability(currentDisability, false);
+            if (player != null) {
+                GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
+                temp.GetComponent<ErrorMessageController>().SetText(lm.bugs.messages[(int)currentDisability]);
+            }
             Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy() {
-        if (lm.isQuitting) {
-            return;
-        }
-
-        lm.bugs.SetDisability(currentDisability, false);
-        if (player != null) {
-            GameObject temp = Instantiate(errorMesagePrefab, player.position, Quaternion.identity);
-            temp.GetComponent<ErrorMessageController>().SetText(lm.bugs.messages[(int)currentDisability]);
         }
     }
 }

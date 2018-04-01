@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour {
     private bool needToJump = false;
     private float horizontalMovement;
     private float fallMultiplier = 2.5f, lowJumpMultiplier = 2f;
+    public GameObject errorMesagePrefab;
 
     private LevelManager lm;
 
     public float jumpVelocity, moveVelocity;
     
 	void Start () {
+        Time.timeScale = 1f;
         lm = LevelManager.instance;
         lm.bugs.OnDisabilitiesChange += OnDisabilitiesChange;
         defaultJumps = lm.bugs.DefaultJumps;
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
+        if (Input.GetKey(KeyCode.R)) {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        }
         if (Input.GetKeyDown(KeyCode.Space) && jumps > 0) {
             needToJump = true;
         }
@@ -68,15 +73,11 @@ public class PlayerController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Harmful")) {
+            Time.timeScale = 0f;
+            GameObject temp = Instantiate(errorMesagePrefab, transform.position, Quaternion.identity);
+            temp.GetComponent<ErrorMessageController>().SetText("Press \"R\" to restart");
             Destroy(gameObject, 0.2f);
         }
-    }
-
-    private void OnDestroy() {
-        if (lm.isQuitting) {
-            return;
-        }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnCollisionStay2D(Collision2D collision) {

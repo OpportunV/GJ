@@ -232,6 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0621af55acde8c4b8dfb6fe29ebf7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errorMesagePrefab: {fileID: 1046237481201722, guid: f22275b14dbd2e849b5499b6b574762b,
+    type: 2}
   jumpVelocity: 7
   moveVelocity: 7
 --- !u!212 &212521847552444784
