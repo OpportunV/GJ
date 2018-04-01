@@ -56,9 +56,9 @@ public class PlayerController : MonoBehaviour {
             GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
             foreach (GameObject obj in platforms) {
                 if (obj.layer == 9) {
-                    var eff = obj.GetComponent<PlatformEffector2D>();
-                    if (eff != null) {
-                        eff.enabled = false;
+                    var tileCol = obj.GetComponent<CompositeCollider2D>();
+                    if (tileCol != null) {
+                        tileCol.usedByEffector = false;
                     }
                 }
             }
