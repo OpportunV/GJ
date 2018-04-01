@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     private void OnDisabilitiesChange() {
         defaultJumps = lm.bugs.DefaultJumps;
         if (!lm.bugs.disabilities[(int)Bugs.Disabilities.SolidBlocks]) {
-            Physics.IgnoreLayerCollision(9, 10, true);
+            Physics2D.IgnoreLayerCollision(9, 10, true);
         }
     }
 

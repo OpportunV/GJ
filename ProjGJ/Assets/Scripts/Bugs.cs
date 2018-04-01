@@ -14,6 +14,8 @@ public class Bugs {
 
     public bool[] disabilities;
 
+    public string[] messages;
+
     public int DefaultJumps {
         get {
             int tmpJumps = 0;
