@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour {
         if (lm.isQuitting) {
             return;
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0); // UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnCollisionStay2D(Collision2D collision) {
