@@ -32,6 +32,9 @@ public class EnemyController : MonoBehaviour {
         lm = LevelManager.instance;
         player = lm.player.transform;
         GetNextWaypoint();
+        if (targetWaypoint == null) {
+            return;
+        }
         currentRoutine = Patrol(Time.fixedDeltaTime);
         StartCoroutine(currentRoutine);
         Physics2D.queriesStartInColliders = false;
