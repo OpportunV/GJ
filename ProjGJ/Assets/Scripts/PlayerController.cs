@@ -57,7 +57,9 @@ public class PlayerController : MonoBehaviour {
             foreach (GameObject obj in platforms) {
                 if (obj.layer == 9) {
                     var eff = obj.GetComponent<PlatformEffector2D>();
-                    eff.enabled = false;
+                    if (eff != null) {
+                        eff.enabled = false;
+                    }
                 }
             }
         }
