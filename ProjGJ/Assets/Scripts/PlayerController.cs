@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour {
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour {
             GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
             foreach (GameObject obj in platforms) {
                 if (obj.layer == 9) {
-                    var tileCol = obj.GetComponent<CompositeCollider2D>();
+                    var tileCol = obj.GetComponent<TilemapCollider2D>();
                     if (tileCol != null) {
                         tileCol.usedByEffector = false;
                     }
