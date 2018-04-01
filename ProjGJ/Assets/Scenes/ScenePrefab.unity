@@ -999,7 +999,7 @@ BuoyancyEffector2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_SurfaceLevel: 0
-  m_Density: 3
+  m_Density: 1.2
   m_LinearDrag: 5
   m_AngularDrag: 5
   m_FlowAngle: 0
@@ -1614,6 +1614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1029390389}
+  isQuitting: 0
+  messages: []
 --- !u!4 &1948794257
 Transform:
   m_ObjectHideFlags: 0
