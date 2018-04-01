@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camOffset: {x: 0, y: 0, z: -10}
-  target: {fileID: 0}
+  target: {fileID: 1922488487}
   smoothTime: 0.5
 --- !u!1 &884330296
 GameObject:
@@ -1681,6 +1681,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9768f4365499aa4f97e2286b217effe, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1922488487 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4660494380378184, guid: b9768f4365499aa4f97e2286b217effe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1922488486}
 --- !u!1 &1948794255
 GameObject:
   m_ObjectHideFlags: 0
